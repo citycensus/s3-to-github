@@ -1,0 +1,22 @@
+service: open-data-germany-ckan-top-5
+
+provider:
+  name: aws
+  runtime: python2.7
+  profile: prototypefund
+  timeout: 300
+
+package:
+  include:
+    - gh/lib/python2.7/site-packages
+    - handler.py
+  exclude:
+    - gh
+
+functions:
+  top_5:
+    handler: handler.commit_top_5
+  detail_stats:
+    handler: handler.commit_stats
+
+
